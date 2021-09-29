@@ -25,13 +25,13 @@ export default function Topbar() {
               </Link>
             </li>
           </ul>
-          <p className="w-6/12 cursor-default flex items-center justify-center ">
-            <IconContext.Provider value={{ className: "mr-2 inline-block" }}>
-              <FaMapMarkerAlt />
-            </IconContext.Provider>
-            Jl. Purwabakti No.24 RT 01 / RW 04 Cisewu Kabupaten Garut Jawa
-            Barat. Kodepos 44166
-          </p>
+          <div className="w-6/12 cursor-default flex items-center justify-center space-x-2">
+            <FaMapMarkerAlt />
+            <p>
+              Jl. Purwabakti No.24 RT 01 / RW 04 Cisewu Kabupaten Garut Jawa
+              Barat. Kodepos 44166
+            </p>
+          </div>
           <ul className="w-3/12 flex justify-end cursor-pointer">
             <li className="py-4 px-4 hover:bg-gray-50 hover:text-gray-900 text-base">
               <Link href="/">
