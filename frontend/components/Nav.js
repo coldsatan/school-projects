@@ -26,7 +26,7 @@ export default function Nav({ scheme, dir }) {
       <NavItem scheme={scheme} href="/galeri">
         Galeri
       </NavItem>
-      <NavItem scheme={scheme} href="/artikelt">
+      <NavItem scheme={scheme} href="/artikel">
         Artikel
       </NavItem>
     </ul>

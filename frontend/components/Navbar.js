@@ -9,7 +9,7 @@ export default function Navbar() {
   const [offCanvas, setOffCanvas] = useState(false);
 
   return (
-    <div className="fixed left-0 right-0 bg-gray-50 text-gray-900 shadow-lg">
+    <div className="sticky top-0 left-0 right-0 bg-gray-50 text-gray-900 shadow-lg">
       <Container property="px-8 md:px-0">
         <nav className="flex justify-between items-center">
           <Logo />
