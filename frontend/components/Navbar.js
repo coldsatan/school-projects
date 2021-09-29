@@ -9,7 +9,7 @@ export default function Navbar() {
   const [offCanvas, setOffCanvas] = useState(false);
 
   return (
-    <div className="bg-gray-50 text-gray-900 shadow-lg">
+    <div className="fixed left-0 right-0 bg-gray-50 text-gray-900 shadow-lg">
       <Container property="px-8 md:px-0">
         <nav className="flex justify-between items-center">
           <Logo />
@@ -30,7 +30,7 @@ export default function Navbar() {
 
       <div
         className={classnames(
-          "fixed bg-gray-50/90 top-0 h-full w-11/12 md:hidden transition-all",
+          "fixed bg-gray-50 top-0 h-full w-11/12 md:hidden transition-all",
           offCanvas ? "right-0" : "-right-full"
         )}
         onClick={() => setOffCanvas(false)}
