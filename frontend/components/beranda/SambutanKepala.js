@@ -1,7 +1,7 @@
-import Container from "./Container";
-import SectionTitle from "./SectionTitle";
+import Container from "../Container";
+import SectionTitle from "../SectionTitle";
 
-export default function SambutanKepalaSection() {
+export default function SambutanKepala() {
   return (
     <section className="bg-gray-100 py-14">
       <Container>

@@ -6,7 +6,6 @@ import {
   IoLogoYoutube,
 } from "react-icons/io";
 import { FaMapMarkerAlt } from "react-icons/fa";
-import { IconContext } from "react-icons/lib";
 
 export default function Topbar() {
   return (
@@ -34,32 +33,24 @@ export default function Topbar() {
           </div>
           <ul className="w-3/12 flex justify-end cursor-pointer">
             <li className="py-4 px-4 hover:bg-gray-50 hover:text-gray-900 text-base">
-              <Link href="/">
-                <a>
-                  <IoLogoFacebook />
-                </a>
-              </Link>
+              <a href="/">
+                <IoLogoFacebook />
+              </a>
             </li>
             <li className="py-4 px-4 hover:bg-gray-50 hover:text-gray-900 text-base">
-              <Link href="/">
-                <a>
-                  <IoLogoLinkedin />
-                </a>
-              </Link>
+              <a href="/">
+                <IoLogoLinkedin />
+              </a>
             </li>
             <li className="py-4 px-4 hover:bg-gray-50 hover:text-gray-900 text-base">
-              <Link href="/">
-                <a>
-                  <IoLogoTwitter />
-                </a>
-              </Link>
+              <a href="/">
+                <IoLogoTwitter />
+              </a>
             </li>
             <li className="py-4 px-4 hover:bg-gray-50 hover:text-gray-900 text-base">
-              <Link href="/">
-                <a>
-                  <IoLogoYoutube />
-                </a>
-              </Link>
+              <a href="/">
+                <IoLogoYoutube />
+              </a>
             </li>
           </ul>
         </div>

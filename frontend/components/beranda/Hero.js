@@ -1,11 +1,11 @@
-import Container from "./Container";
+import Container from "../Container";
 import Link from "next/link";
 
-export default function HeroSection() {
+export default function Hero() {
   return (
     <div className="flex flex-col-reverse md:flex-row">
       <section className="md:w-6/12 my-auto">
-        <Container property="p-8 md:pl-20 xl:pl-40">
+        <Container property="p-8 md:pl-20 xl:pl-28">
           <h2 className="text-3xl md:text-5xl xl:text-6xl">
             Selamat Datang di{" "}
             <span className="font-bold text-yellow-300">SMKN 11 GARUT</span>
