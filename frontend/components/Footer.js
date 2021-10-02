@@ -72,7 +72,7 @@ export default function Footer() {
             <h3 className="hidden md:block text-left md:text-right text-lg font-bold items-start">
               Ikuti Kami di Social Media
             </h3>
-            <ul className="flex cursor-pointer space-x-4 py-0 md:py-4 text-lg">
+            <ul className="flex justify-end cursor-pointer space-x-4 py-0 md:py-4 text-lg">
               <li>
                 <a
                   href="https://www.facebook.com/profile.php?id=100008521474195"
