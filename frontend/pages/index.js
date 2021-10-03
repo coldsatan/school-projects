@@ -10,7 +10,7 @@ import { fetchAPI } from "../lib/api";
 import { useContext } from "react";
 import { GlobalContext } from "./_app";
 
-export default function Home() {
+export default function Home({ articles, homepage }) {
   const { sitename } = useContext(GlobalContext);
   return (
     <>
@@ -19,8 +19,8 @@ export default function Home() {
       </Head>
       <Header />
       <main>
-        <Hero />
-        <SambutanKepala />
+        <Hero hero={homepage.hero} />
+        <SambutanKepala text={homepage} />
         <ArtikelTerbaru />
         <HubungiKami />
       </main>
@@ -31,10 +31,13 @@ export default function Home() {
 
 export async function getStaticProps() {
   // Run API calls in parallel
-  const [articles] = await Promise.all([fetchAPI("/articles")]);
+  const [articles, homepage] = await Promise.all([
+    fetchAPI("/articles"),
+    fetchAPI("/homepage"),
+  ]);
 
   return {
-    props: { articles },
+    props: { articles, homepage },
     revalidate: 1,
   };
 }

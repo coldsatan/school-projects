@@ -1,7 +1,8 @@
 import Container from "../Container";
 import Link from "next/link";
+import { getStrapiMedia } from "../../lib/media";
 
-export default function Hero() {
+export default function Hero({ hero }) {
   return (
     <div className="flex flex-col-reverse md:flex-row">
       <section className="md:w-6/12 my-auto">
@@ -21,7 +22,7 @@ export default function Hero() {
           </button>
         </Container>
       </section>
-      <img src="/gedung-sekolah.png" className="w-full md:w-6/12 " />
+      <img src={getStrapiMedia(hero)} className="w-full md:w-6/12 " />
     </div>
   );
 }
