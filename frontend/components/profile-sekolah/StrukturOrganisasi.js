@@ -14,7 +14,7 @@ export default function StrukturOrganisasi() {
               className="h-80 w-full object-cover rounded-md"
             />
           </div>
-          <div className="w-full md:w-9/12 flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-8 font-semibold my-4">
+          <div className="w-full md:w-9/12 flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-14 font-semibold my-4">
             <div className="w-10/12 md:w-3/12">
               <h3 className="mb-4">Wakasek Kurikulum</h3>
               <img
