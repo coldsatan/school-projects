@@ -19,25 +19,35 @@ export default function Galeri() {
       <section className="py-14">
         <Container>
           <SectionTitle title="Video" />
-          <div className="grid md:grid-cols-4 gap-y-8 gap-4 py-8 px-8 md:px-0">
+          <div className="grid md:grid-cols-2 gap-8 py-8 px-8 md:px-0">
             <iframe
               src="https://www.youtube.com/embed/E7wJTI-1dvQ"
               title="video"
+              className="w-full h-80"
               allowFullScreen
             />
             <iframe
               src="https://www.youtube.com/embed/E7wJTI-1dvQ"
               title="video"
+              className="w-full h-80"
               allowFullScreen
             />
             <iframe
               src="https://www.youtube.com/embed/E7wJTI-1dvQ"
               title="video"
+              className="w-full h-80"
               allowFullScreen
             />
             <iframe
               src="https://www.youtube.com/embed/E7wJTI-1dvQ"
               title="video"
+              className="w-full h-80"
+              allowFullScreen
+            />
+            <iframe
+              src="https://www.youtube.com/embed/E7wJTI-1dvQ"
+              title="video"
+              className="w-full h-80"
               allowFullScreen
             />
           </div>

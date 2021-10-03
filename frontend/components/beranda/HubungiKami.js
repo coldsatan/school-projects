@@ -3,7 +3,7 @@ import SectionTitle from "../SectionTitle";
 
 export default function HubungiKami() {
   return (
-    <section className="bg-pattern py-14 h-full">
+    <section id="hubungi-kami" className="bg-pattern py-14 h-full">
       <Container>
         <SectionTitle title="Hubungi Kami" />
         <Container property="px-8 md:px-32">

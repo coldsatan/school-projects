@@ -6,8 +6,19 @@ import {
   IoLogoTwitter,
   IoLogoYoutube,
 } from "react-icons/io";
+import { useContext } from "react";
+import { GlobalContext } from "../pages/_app";
 
 export default function Footer() {
+  const {
+    facebookLink,
+    linkedinLink,
+    twitterLink,
+    youtubeLink,
+    email,
+    address,
+  } = useContext(GlobalContext);
+
   return (
     <>
       <footer className="bg-gray-900 text-gray-50 py-14">
@@ -16,16 +27,11 @@ export default function Footer() {
             <h3 className="font-semibold text-2xl md:text-3xl">
               SMKN 11 Garut
             </h3>
-            <p className="font-light my-4 text-xs md:text-base">
-              Jl. Purwabakti No. 24 RT 01 / RW 07 Cisewu Kabupaten Garut Jawa
-              Barat Kode Pos 44166
-            </p>
+            <p className="font-light my-4 text-xs md:text-base">{address}</p>
             <h4 className="font-semibold text-xs md:text-base">
               Punya pertanyaan? silahkan hubungi
             </h4>
-            <p className="font-light my-4 text-xs md:text-base">
-              info@smkn11garut.ac.id
-            </p>
+            <p className="font-light my-4 text-xs md:text-base">{email}</p>
           </div>
           <div className="w-5/12 justify-center hidden md:flex space-x-16 font-light text-xs md:text-lg py-4">
             <ul className="flex flex-col space-y-4">
@@ -57,7 +63,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/">
+                <Link href="/faq">
                   <a>FAQ</a>
                 </Link>
               </li>
@@ -74,31 +80,22 @@ export default function Footer() {
             </h3>
             <ul className="flex justify-start md:justify-end cursor-pointer space-x-4 py-0 md:py-4 text-lg">
               <li>
-                <a
-                  href="https://www.facebook.com/profile.php?id=100008521474195"
-                  target="_blank"
-                >
+                <a href={facebookLink} target="_blank">
                   <IoLogoFacebook />
                 </a>
               </li>
               <li>
-                <a
-                  href="https://www.linkedin.com/in/octyo-paswa-putra-9a64351b6/"
-                  target="_blank"
-                >
+                <a href={linkedinLink} target="_blank">
                   <IoLogoLinkedin />
                 </a>
               </li>
               <li>
-                <a href="https://twitter.com/lucifergotmad" target="_blank">
+                <a href={twitterLink} target="_blank">
                   <IoLogoTwitter />
                 </a>
               </li>
               <li>
-                <a
-                  href="https://www.youtube.com/channel/UCpStuzJ3DYtSV6fcgmAn67Q/featured"
-                  target="_blank"
-                >
+                <a href={youtubeLink} target="_blank">
                   <IoLogoYoutube />
                 </a>
               </li>
