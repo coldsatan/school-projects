@@ -1,7 +1,7 @@
 import Head from "next/head";
-import Link from "next/link";
-import Container from "../components/Container";
+import Footer from "../components/Footer";
 import Header from "../components/Header";
+import ProgramKeahlian from "../components/program-keahlian/ProgramKeahlian";
 
 export default function Home() {
   return (
@@ -11,8 +11,9 @@ export default function Home() {
       </Head>
       <Header />
       <main>
-        <section></section>
+        <ProgramKeahlian />
       </main>
+      <Footer />
     </>
   );
 }
