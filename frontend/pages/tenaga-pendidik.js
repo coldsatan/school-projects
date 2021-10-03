@@ -1,7 +1,9 @@
 import Head from "next/head";
 import Link from "next/link";
 import Container from "../components/Container";
+import Footer from "../components/Footer";
 import Header from "../components/Header";
+import TenagaPendidik from "../components/tenaga-pendidik/TenagaPendidik";
 
 export default function Home() {
   return (
@@ -11,8 +13,9 @@ export default function Home() {
       </Head>
       <Header />
       <main>
-        <section></section>
+        <TenagaPendidik />
       </main>
+      <Footer />
     </>
   );
 }
