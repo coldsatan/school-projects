@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import Container from "../components/Container";
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
           </h2>
         </Container>
       </main>
+      <Footer />
     </>
   );
 }

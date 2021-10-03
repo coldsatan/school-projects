@@ -1,9 +1,7 @@
 import Head from "next/head";
-import Link from "next/link";
-import Container from "../components/Container";
 import Footer from "../components/Footer";
+import Galeri from "../components/galeri/Galeri";
 import Header from "../components/Header";
-import SectionTitle from "../components/SectionTitle";
 
 export default function Home() {
   return (
@@ -13,17 +11,7 @@ export default function Home() {
       </Head>
       <Header />
       <main>
-        <section className="py-14">
-          <Container>
-            <SectionTitle title="Foto" />
-            <div className="grid grid-cols-3"></div>
-          </Container>
-        </section>
-        <section className="py-14">
-          <Container>
-            <SectionTitle title="Video" />
-          </Container>
-        </section>
+        <Galeri />
       </main>
       <Footer />
     </>
