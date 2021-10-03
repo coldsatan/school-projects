@@ -21,7 +21,7 @@ export default function Home({ articles, homepage }) {
       <main>
         <Hero hero={homepage.hero} />
         <SambutanKepala text={homepage} />
-        <ArtikelTerbaru />
+        <ArtikelTerbaru data={articles} />
         <HubungiKami />
       </main>
       <Footer />
@@ -32,7 +32,7 @@ export default function Home({ articles, homepage }) {
 export async function getStaticProps() {
   // Run API calls in parallel
   const [articles, homepage] = await Promise.all([
-    fetchAPI("/articles"),
+    fetchAPI("/articles?_limit=4"),
     fetchAPI("/homepage"),
   ]);
 
