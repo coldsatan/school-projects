@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Container from "../Container";
+import SectionTitle from "../SectionTitle";
 
 export default function Artikel() {
   const [kategori, setKategori] = useState("");
