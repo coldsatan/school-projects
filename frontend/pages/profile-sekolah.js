@@ -11,7 +11,7 @@ import VisiMisi from "../components/profile-sekolah/VisiMisi";
 import { fetchAPI } from "../lib/api";
 import { GlobalContext } from "./_app";
 
-export default function ProfileSekolah({
+export default function ProfileSekolahPage({
   profile,
   visi,
   misi,

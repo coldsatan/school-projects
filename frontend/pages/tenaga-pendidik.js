@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import TenagaPendidik from "../components/tenaga-pendidik/TenagaPendidik";
 
-export default function Home() {
+export default function TenagaPendidikPage() {
   return (
     <>
       <Head>

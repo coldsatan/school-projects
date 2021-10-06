@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 import Galeri from "../components/galeri/Galeri";
 import Header from "../components/Header";
 
-export default function Home() {
+export default function GaleriPage() {
   return (
     <>
       <Head>

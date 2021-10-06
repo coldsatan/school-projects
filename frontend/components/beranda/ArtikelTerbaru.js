@@ -45,10 +45,9 @@ export default function ArtikelTerbaru({ data }) {
           </div>
           <div className="w-full md:w-4/12 flex flex-col space-y-8">
             {articles.map((article, i) => {
-              console.log(article);
               return (
                 <div key={i}>
-                  <Link as={`/article/${article.slug}`} href={`/article/[id]`}>
+                  <Link href={`/article/${article.slug}`}>
                     <img
                       src={getStrapiMedia(article.thumbnail)}
                       className="h-52 w-full object-center object-cover rounded-md cursor-pointer"

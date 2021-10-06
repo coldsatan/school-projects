@@ -1,0 +1,49 @@
+{
+  "kind": "singleType",
+  "collectionName": "globals",
+  "info": {
+    "name": "global",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "favicon": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "email": {
+      "type": "string"
+    },
+    "facebookLink": {
+      "type": "string"
+    },
+    "linkedinLink": {
+      "type": "string"
+    },
+    "twitterLink": {
+      "type": "text"
+    },
+    "youtubeLink": {
+      "type": "string"
+    },
+    "sitename": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    }
+  }
+}

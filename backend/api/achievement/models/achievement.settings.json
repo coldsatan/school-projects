@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "achievements",
+  "info": {
+    "name": "achievement"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

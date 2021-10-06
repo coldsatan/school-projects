@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "misis",
+  "info": {
+    "name": "Misi",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "text"
+    }
+  }
+}

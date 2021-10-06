@@ -1,10 +1,34 @@
-import { useState } from "react";
+import moment from "moment";
+import classnames from "classnames";
+import { useEffect, useState } from "react";
+import { getStrapiMedia } from "../../lib/media";
 import Container from "../Container";
 import SectionTitle from "../SectionTitle";
+import Link from "next/link";
+import { fetchAPI } from "../../lib/api";
 
-export default function Artikel() {
-  const [kategori, setKategori] = useState("");
+export default function Artikel({ categories, articles }) {
+  const [kategori, setKategori] = useState("ALL");
   const [judul, setJudul] = useState("");
+  const [article, setArticle] = useState(articles);
+
+  useEffect(async () => {
+    let listArticles;
+    if (kategori === "ALL") {
+      listArticles = await fetchAPI(`/articles`);
+    } else {
+      listArticles = await fetchAPI(
+        `/articles?_where[categories.name]=${kategori}`
+      );
+    }
+
+    if (judul.length > 0) {
+      listArticles = await fetchAPI(
+        `/articles?_where[title_contains]=${judul}`
+      );
+    }
+    setArticle(listArticles);
+  }, [kategori, judul]);
   return (
     <>
       <section className="py-14 bg-gray-100">
@@ -14,11 +38,20 @@ export default function Artikel() {
           </h3>
           <div className="flex flex-col md:flex-row items-center justify-between">
             <ul className="flex items-center justify-center md:justify-start text-sm md:text-lg space-x-4 md:space-x-14 py-8 cursor-pointer">
-              <li onClick={() => setKategori("olahraga")}>Olahraga</li>
-              <li onClick={() => setKategori("teknologi")}>Teknologi</li>
-              <li onClick={() => setKategori("kesehatan")}>Kesehatan</li>
-              <li onClick={() => setKategori("berita")}>Berita</li>
-              <li onClick={() => setKategori("info")}>Info</li>
+              {categories.map((element, i) => {
+                return (
+                  <li
+                    className={classnames(
+                      "capitalize",
+                      element.name === kategori ? "font-semibold" : ""
+                    )}
+                    key={i}
+                    onClick={() => setKategori(element.name)}
+                  >
+                    {element.name}
+                  </li>
+                );
+              })}
             </ul>
             <div className="flex flex-col items-center md:flex-row md:space-x-4">
               <input
@@ -37,80 +70,36 @@ export default function Artikel() {
       <section className="py-14">
         <Container>
           <SectionTitle title="Daftar Artikel" />
-
           <div className="grid md:grid-cols-3 gap-8 py-8">
-            <div>
-              <div className="h-80">
-                <img
-                  src="/gedung-sekolah.png"
-                  className="h-full object-cover w-full rounded-md"
-                />
-              </div>
-              <div className="flex justify-between items-center my-4 md:mx-0 mx-4 text-sm">
-                <p className="font-light">Sabtu, 12 September 2021</p>
-                <h2 className="font-bold">Jane Doe</h2>
-              </div>
-              <h3 className="font-bold mx-4 md:mx-0 text-lg">
-                Tutorial membuat blog menggunakan Strapi JS dan NextJS
-              </h3>
-              <p className="text-sm leading-loose my-2 mx-4 md:mx-0">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Curabitur at orci ac quam dignissim dignissim. In hac habitasse
-                platea dictumst. Phasellus ut rhoncus ligula, vestibulum lacinia
-                arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Curabitur at orci ac quam dignissim dignissim. In hac habitasse
-                platea dictumst. Phasellus ut rhoncus ligula, vestibulum lacinia
-                arcu.
-              </p>
-            </div>
-            <div>
-              <div className="h-80">
-                <img
-                  src="/gedung-sekolah.png"
-                  className="h-full object-cover w-full rounded-md"
-                />
-              </div>
-              <div className="flex justify-between items-center my-4 md:mx-0 mx-4 text-sm">
-                <p className="font-light">Sabtu, 12 September 2021</p>
-                <h2 className="font-bold">Jane Doe</h2>
-              </div>
-              <h3 className="font-bold text-lg mx-4 md:mx-0">
-                Tutorial membuat blog menggunakan Strapi JS dan NextJS
-              </h3>
-              <p className="text-sm leading-loose my-2 mx-4 md:mx-0">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Curabitur at orci ac quam dignissim dignissim. In hac habitasse
-                platea dictumst. Phasellus ut rhoncus ligula, vestibulum lacinia
-                arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Curabitur at orci ac quam dignissim dignissim. In hac habitasse
-                platea dictumst. Phasellus ut rhoncus ligula, vestibulum lacinia
-                arcu.
-              </p>
-            </div>
-            <div>
-              <div className="h-80">
-                <img
-                  src="/gedung-sekolah.png"
-                  className="h-full object-cover w-full rounded-md"
-                />
-              </div>
-              <div className="flex justify-between items-center my-4 mx-4 md:mx-0 text-sm">
-                <p className="font-light">Sabtu, 12 September 2021</p>
-                <h2 className="font-bold">Jane Doe</h2>
-              </div>
-              <h3 className="font-bold text-lg mx-4 md:mx-0">
-                Tutorial membuat blog menggunakan Strapi JS dan NextJS
-              </h3>
-              <p className="text-sm leading-loose my-2 mx-4 md:mx-0">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Curabitur at orci ac quam dignissim dignissim. In hac habitasse
-                platea dictumst. Phasellus ut rhoncus ligula, vestibulum lacinia
-                arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Curabitur at orci ac quam dignissim dignissim. In hac habitasse
-                platea dictumst. Phasellus ut rhoncus ligula, vestibulum lacinia
-                arcu.
-              </p>
-            </div>
+            {article.map((element, i) => {
+              return (
+                <div key={i}>
+                  <div className="h-80">
+                    <Link
+                      href={`/article/${element.slug}`}
+                      as={`/article/${element.slug}`}
+                    >
+                      <img
+                        src={getStrapiMedia(element.thumbnail)}
+                        className="h-full object-cover w-full rounded-md cursor-pointer"
+                      />
+                    </Link>
+                  </div>
+                  <div className="flex justify-between items-center my-4 md:mx-0 mx-4 text-sm">
+                    <p className="font-light">
+                      {moment(element.published_at).format("llll")}
+                    </p>
+                    <h2 className="font-bold">{element.author.name}</h2>
+                  </div>
+                  <h3 className="font-bold mx-4 md:mx-0 text-lg">
+                    {element.title}
+                  </h3>
+                  <p className="text-sm leading-loose my-2 mx-4 md:mx-0">
+                    {element.headline}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </Container>
       </section>

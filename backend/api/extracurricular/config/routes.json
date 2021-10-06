@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/extracurriculars",
+      "handler": "extracurricular.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/extracurriculars/count",
+      "handler": "extracurricular.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/extracurriculars/:id",
+      "handler": "extracurricular.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/extracurriculars",
+      "handler": "extracurricular.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/extracurriculars/:id",
+      "handler": "extracurricular.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/extracurriculars/:id",
+      "handler": "extracurricular.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -1,14 +1,10 @@
 import Head from "next/head";
-import { useState } from "react";
 import Artikel from "../components/artikel/Artikel";
-import Container from "../components/Container";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import SectionTitle from "../components/SectionTitle";
+import { fetchAPI } from "../lib/api";
 
-export default function Home() {
-  const [kategori, setKategori] = useState("");
-  const [judul, setJudul] = useState("");
+export default function Artikels({ articles, categories }) {
   return (
     <>
       <Head>
@@ -16,9 +12,22 @@ export default function Home() {
       </Head>
       <Header />
       <main>
-        <Artikel />
+        <Artikel articles={articles} categories={categories} />
       </main>
       <Footer />
     </>
   );
+}
+
+export async function getStaticProps() {
+  // Run API calls in parallel
+  const [articles, categories] = await Promise.all([
+    fetchAPI("/articles"),
+    fetchAPI("/categories"),
+  ]);
+
+  return {
+    props: { articles, categories },
+    revalidate: 1,
+  };
 }

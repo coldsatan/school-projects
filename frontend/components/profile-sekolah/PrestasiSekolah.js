@@ -12,7 +12,10 @@ export default function PrestasiSekolah({ data }) {
           <div className="flex flex-wrap py-4">
             {data.map((element, i) => {
               return (
-                <div className="w-full md:w-5/12 mt-2 flex space-x-4 items-center font-semibold bg-gray-900 text-gray-50 p-4 rounded-md md:mr-2">
+                <div
+                  key={i}
+                  className="w-full md:w-5/12 mt-2 flex space-x-4 items-center font-semibold bg-gray-900 text-gray-50 p-4 rounded-md md:mr-2"
+                >
                   <FaTrophy />
                   <p>{element.name}</p>
                 </div>
