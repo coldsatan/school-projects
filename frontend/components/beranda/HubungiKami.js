@@ -1,6 +1,6 @@
 import Container from "../Container";
 import SectionTitle from "../SectionTitle";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function HubungiKami() {
   const [nama, setNama] = useState("");
