@@ -1,7 +1,34 @@
 import Container from "../Container";
 import SectionTitle from "../SectionTitle";
+import { useEffect, useState } from "react";
 
 export default function HubungiKami() {
+  const [nama, setNama] = useState("");
+  const [email, setEmail] = useState("");
+  const [pesan, setPesan] = useState("");
+  const [kirim, setKirim] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    let data = {
+      nama: nama,
+      email: email,
+      pesan: pesan,
+    };
+    await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    setNama("");
+    setEmail("");
+    setPesan("");
+    setKirim(true);
+    alert("Berhasil kirim pesan");
+  };
   return (
     <section id="hubungi-kami" className="bg-pattern py-14 h-full">
       <Container>
@@ -16,6 +43,7 @@ export default function HubungiKami() {
                   </label>
                   <input
                     className="rounded-md p-4 md:mr-2 mr-0 bg-gray-50/70 shadow-lg"
+                    onChange={(e) => setNama(e.target.value)}
                     type="text"
                     name="nama"
                     id="nama"
@@ -27,6 +55,7 @@ export default function HubungiKami() {
                   </label>
                   <input
                     className="rounded-md p-4 md:ml-2 ml-0 bg-gray-50/70 shadow-lg"
+                    onChange={(e) => setEmail(e.target.value)}
                     type="email"
                     name="email"
                     id="email"
@@ -39,14 +68,20 @@ export default function HubungiKami() {
                 </label>
                 <textarea
                   className="rounded-md p-4 h-40 bg-gray-50/70 shadow-lg"
+                  onChange={(e) => setPesan(e.target.value)}
                   type="text"
                   name="pesan"
                   id="pesan"
                 />
               </div>
-              <button className="block md:inline-block md:px-8 w-full md:w-auto bg-yellow-300 transition-all py-4 mt-8 text-gray-50 text-lg rounded-md">
-                Kirim Pesan
-              </button>
+              <input
+                type="submit"
+                className="block md:inline-block md:px-8 w-full md:w-auto bg-yellow-300 transition-all py-4 mt-8 text-gray-50 text-lg rounded-md"
+                onClick={(e) => {
+                  handleSubmit(e);
+                }}
+                value="Kirim Pesan"
+              />
             </form>
           </div>
         </Container>
