@@ -19,9 +19,17 @@ export default function (req, res) {
     html: `<div>${req.body.pesan}</div><p>Sent from:
       ${req.body.email}</p>`,
   };
-  transporter.sendMail(mailData, function (err, info) {
-    if (err) console.log(err);
-    else console.log(info);
+
+  return new Promise((resolve, reject) => {
+    transporter
+      .sendMail(mailData)
+      .then((response) => {
+        res.statusCode(200);
+        resolve();
+      })
+      .catch((err) => {
+        res.json(err);
+        return resolve();
+      });
   });
-  return res.status(200);
 }

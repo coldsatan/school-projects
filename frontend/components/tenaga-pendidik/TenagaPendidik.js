@@ -57,6 +57,8 @@ export default function TenagaPendidik({ data }) {
                     src={getStrapiMedia(employee.avatar)}
                     className="h-80 w-full object-cover rounded-md"
                   />
+                  <p className="mt-2 font-light ">{employee.name}</p>
+                  <p className="font-semibold">{employee.nip}</p>
                 </div>
               );
             })}

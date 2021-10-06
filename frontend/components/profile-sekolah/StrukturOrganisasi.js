@@ -21,6 +21,10 @@ export default function StrukturOrganisasi({ data }) {
               src={getStrapiMedia(kepalaSekolah.avatar)}
               className="h-80 w-full object-cover rounded-md"
             />
+            <div>
+              <p className="mt-2 font-light ">{kepalaSekolah.name}</p>
+              <p className="font-semibold">{kepalaSekolah.nip}</p>
+            </div>
           </div>
           <div className="w-full md:w-9/12 flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-14 font-semibold my-4">
             {wakilKepalaSekolah.map((element, i) => {
@@ -31,6 +35,10 @@ export default function StrukturOrganisasi({ data }) {
                     src={getStrapiMedia(element.avatar)}
                     className="h-80 w-full object-cover rounded-md"
                   />
+                  <div>
+                    <p className="mt-2 font-light ">{element.name}</p>
+                    <p className="font-semibold">{element.nip}</p>
+                  </div>
                 </div>
               );
             })}

@@ -6,7 +6,6 @@ export default function HubungiKami() {
   const [nama, setNama] = useState("");
   const [email, setEmail] = useState("");
   const [pesan, setPesan] = useState("");
-  const [kirim, setKirim] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,22 +14,21 @@ export default function HubungiKami() {
       email: email,
       pesan: pesan,
     };
-    const res = await fetch("/api/contact", {
+    await fetch("/api/contact", {
       method: "POST",
       headers: {
         Accept: "application/json, text/plain, */*",
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
+    }).then((res) => {
+      if (res.status === 200) {
+        setEmail("");
+        setNama("");
+        setPesan("");
+        alert("Berhasil Kirim Pesan");
+      }
     });
-
-    if (res.status === 200) {
-      setNama("");
-      setEmail("");
-      setPesan("");
-      setKirim(true);
-      alert("Berhasil kirim pesan");
-    }
   };
   return (
     <section id="hubungi-kami" className="bg-pattern py-14 h-full">
@@ -49,6 +47,7 @@ export default function HubungiKami() {
                     onChange={(e) => {
                       setNama(e.target.value);
                     }}
+                    value={nama}
                     type="text"
                     name="nama"
                     id="nama"
@@ -61,6 +60,7 @@ export default function HubungiKami() {
                   <input
                     className="rounded-md p-4 md:ml-2 ml-0 bg-gray-50/70 shadow-lg"
                     onChange={(e) => setEmail(e.target.value)}
+                    value={email}
                     type="email"
                     name="email"
                     id="email"
@@ -74,6 +74,7 @@ export default function HubungiKami() {
                 <textarea
                   className="rounded-md p-4 h-40 bg-gray-50/70 shadow-lg"
                   onChange={(e) => setPesan(e.target.value)}
+                  value={pesan}
                   type="text"
                   name="pesan"
                   id="pesan"
