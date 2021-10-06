@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "goals",
+  "info": {
+    "name": "goal",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "text"
+    },
+    "major": {
+      "model": "major"
+    }
+  }
+}

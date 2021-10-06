@@ -1,11 +1,10 @@
 import Head from "next/head";
-import Link from "next/link";
-import Container from "../components/Container";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import TenagaPendidik from "../components/tenaga-pendidik/TenagaPendidik";
+import { fetchAPI } from "../lib/api";
 
-export default function TenagaPendidikPage() {
+export default function TenagaPendidikPage({ employees }) {
   return (
     <>
       <Head>
@@ -13,9 +12,21 @@ export default function TenagaPendidikPage() {
       </Head>
       <Header />
       <main>
-        <TenagaPendidik />
+        <TenagaPendidik data={employees} />
       </main>
       <Footer />
     </>
   );
+}
+
+export async function getStaticProps() {
+  // Run API calls in parallel
+  const [employees] = await Promise.all([fetchAPI("/employees")]);
+
+  return {
+    props: {
+      employees,
+    },
+    revalidate: 1,
+  };
 }

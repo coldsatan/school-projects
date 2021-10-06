@@ -2,8 +2,9 @@ import Head from "next/head";
 import Footer from "../components/Footer";
 import Galeri from "../components/galeri/Galeri";
 import Header from "../components/Header";
+import { fetchAPI } from "../lib/api";
 
-export default function GaleriPage() {
+export default function GaleriPage({ photos, videos }) {
   return (
     <>
       <Head>
@@ -11,9 +12,25 @@ export default function GaleriPage() {
       </Head>
       <Header />
       <main>
-        <Galeri />
+        <Galeri photos={photos} videos={videos} />
       </main>
       <Footer />
     </>
   );
+}
+
+export async function getStaticProps() {
+  // Run API calls in parallel
+  const [photos, videos] = await Promise.all([
+    fetchAPI("/photos"),
+    fetchAPI("/videos"),
+  ]);
+
+  return {
+    props: {
+      photos,
+      videos,
+    },
+    revalidate: 1,
+  };
 }
