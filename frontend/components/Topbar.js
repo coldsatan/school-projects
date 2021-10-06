@@ -23,9 +23,7 @@ export default function Topbar() {
               </Link>
             </li>
             <li className="py-4 px-4 hover:bg-gray-50 hover:text-gray-900 cursor-pointer">
-              <Link href="/faq">
-                <a>FAQ</a>
-              </Link>
+              <a href="https://api.whatsapp.com/send?phone=081321832034">FAQ</a>
             </li>
           </ul>
           <div className="w-6/12 cursor-default flex items-center justify-center space-x-2">

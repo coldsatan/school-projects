@@ -15,7 +15,7 @@ export default function HubungiKami() {
       email: email,
       pesan: pesan,
     };
-    await fetch("/api/contact", {
+    const res = await fetch("/api/contact", {
       method: "POST",
       headers: {
         Accept: "application/json, text/plain, */*",
@@ -23,11 +23,14 @@ export default function HubungiKami() {
       },
       body: JSON.stringify(data),
     });
-    setNama("");
-    setEmail("");
-    setPesan("");
-    setKirim(true);
-    alert("Berhasil kirim pesan");
+
+    if (res.status === 200) {
+      setNama("");
+      setEmail("");
+      setPesan("");
+      setKirim(true);
+      alert("Berhasil kirim pesan");
+    }
   };
   return (
     <section id="hubungi-kami" className="bg-pattern py-14 h-full">
@@ -43,7 +46,9 @@ export default function HubungiKami() {
                   </label>
                   <input
                     className="rounded-md p-4 md:mr-2 mr-0 bg-gray-50/70 shadow-lg"
-                    onChange={(e) => setNama(e.target.value)}
+                    onChange={(e) => {
+                      setNama(e.target.value);
+                    }}
                     type="text"
                     name="nama"
                     id="nama"

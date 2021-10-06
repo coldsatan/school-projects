@@ -63,9 +63,9 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/faq">
-                  <a>FAQ</a>
-                </Link>
+                <a href="https://api.whatsapp.com/send?phone=081321832034">
+                  FAQ
+                </a>
               </li>
               <li>
                 <Link href="/artikel">

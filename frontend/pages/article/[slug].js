@@ -20,22 +20,26 @@ const Article = ({ article, categories }) => {
           <Container>
             <img
               src={getStrapiMedia(article.thumbnail)}
-              className="w-full h-96 object-cover object-center rounded-md"
+              className="w-full h-96 object-cover rounded-md"
             />
-            <div className="px-8 flex items-center justify-between">
-              <div className="flex items-center space-x-4">
+            <div className="px-4 md:px-8 flex items-center justify-between">
+              <div className="flex items-center space-x-2 md:space-x-4">
                 <img
                   src={getStrapiMedia(article.author.avatar)}
-                  className="h-16 w-16 rounded-full object-cover object-center"
+                  className="h-8 w-8 md:h-16 md:w-16 rounded-full object-cover object-center"
                 />
                 <div className="flex flex-col items-start my-8">
-                  <h3 className="font-bold text-lg">{article.author.name}</h3>
-                  <p className="text-sm">{article.author.job}</p>
+                  <h3 className="font-bold text-sm md:text-lg">
+                    {article.author.name}
+                  </h3>
+                  <p className="text-xs">{article.author.job}</p>
                 </div>
               </div>
-              <p>{moment(article.published_at).format("llll")}</p>
+              <p className="text-xs md:text-sm">
+                {moment(article.published_at).format("LL")}
+              </p>
             </div>
-            <div className="md:px-8 leading-loose">
+            <div className="px-4 md:px-8 leading-loose">
               <ReactMarkdown children={article.content} />
             </div>
           </Container>

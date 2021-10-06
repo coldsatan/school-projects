@@ -20,7 +20,7 @@ export default function ArtikelTerbaru({ data }) {
           <div className="w-8/12 hidden md:block">
             <Link
               as={`/article/${featuredArticle.slug}`}
-              href={`/article/[id]`}
+              href={`/article/${featuredArticle.slug}`}
             >
               <img
                 src={getStrapiMedia(featuredArticle.thumbnail)}
@@ -30,7 +30,7 @@ export default function ArtikelTerbaru({ data }) {
             <Container property="px-4">
               <div className="flex justify-between items-center my-4 text-sm">
                 <p className="font-light">
-                  {moment(featuredArticle.published_at).format("llll")}
+                  {moment(featuredArticle.published_at).format("LL")}
                 </p>
                 <h2 className="font-bold">{featuredArticle.author.name}</h2>
               </div>
@@ -56,7 +56,7 @@ export default function ArtikelTerbaru({ data }) {
                   <Container property="px-4">
                     <div className="flex justify-between items-center my-4 text-xs md:text-sm">
                       <p className="font-light">
-                        {moment(article.published_at).format("llll")}
+                        {moment(article.published_at).format("LL")}
                       </p>
                       <h2 className="font-bold">{article.author.name}</h2>
                     </div>

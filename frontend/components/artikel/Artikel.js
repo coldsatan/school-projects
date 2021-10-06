@@ -38,6 +38,15 @@ export default function Artikel({ categories, articles }) {
           </h3>
           <div className="flex flex-col md:flex-row items-center justify-between">
             <ul className="flex items-center justify-center md:justify-start text-sm md:text-lg space-x-4 md:space-x-14 py-8 cursor-pointer">
+              <li
+                className={classnames(
+                  "capitalize",
+                  kategori === "ALL" ? "font-semibold" : ""
+                )}
+                onClick={() => setKategori("ALL")}
+              >
+                Semua
+              </li>
               {categories.map((element, i) => {
                 return (
                   <li
@@ -87,7 +96,7 @@ export default function Artikel({ categories, articles }) {
                   </div>
                   <div className="flex justify-between items-center my-4 md:mx-0 mx-4 text-sm">
                     <p className="font-light">
-                      {moment(element.published_at).format("llll")}
+                      {moment(element.published_at).format("LL")}
                     </p>
                     <h2 className="font-bold">{element.author.name}</h2>
                   </div>
