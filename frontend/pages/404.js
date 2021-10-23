@@ -32,7 +32,6 @@ export default function NotFound({ notfound }) {
 }
 
 export async function getStaticProps() {
-  // Run API calls in parallel
   const [notfound] = await Promise.all([fetchAPI("/not-found")]);
 
   return {
