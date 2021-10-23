@@ -20,7 +20,6 @@ export default function GaleriPage({ photos, videos }) {
 }
 
 export async function getStaticProps() {
-  // Run API calls in parallel
   const [photos, videos] = await Promise.all([
     fetchAPI("/photos"),
     fetchAPI("/videos"),
